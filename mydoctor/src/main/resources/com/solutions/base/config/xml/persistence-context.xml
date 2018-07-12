@@ -37,7 +37,7 @@
 				<!-- ********************************************************************* 
 				use this property only in development never in other environments <prop key="hibernate.hbm2ddl.auto">update</prop> 
 					********************************************************************* -->
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<!-- ********************************************************************* -->
 			</props>
 		</property>

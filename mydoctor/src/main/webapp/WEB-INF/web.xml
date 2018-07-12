@@ -3,10 +3,10 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebSolutions" version="3.1">
+	id="Solutions" version="3.1">
 
 
-	<display-name>WebSolutions</display-name>
+	<display-name>Solutions</display-name>
 
 	<welcome-file-list>
 		<welcome-file>/default</welcome-file>

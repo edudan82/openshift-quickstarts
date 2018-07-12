@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.solutions.base.mvc.dao.TestDao;
 import com.solutions.base.mvc.entity.test;
+import com.solutions.base.mvc.service.TestService;
 
 import junit.framework.TestCase;
 
@@ -18,8 +19,8 @@ import junit.framework.TestCase;
 @ContextConfiguration(
 					  
 		locations= {
-					"/com/solutions/base/config/xml/persistence-context.xml"
-		
+					"/com/solutions/base/config/xml/persistence-context.xml",
+				"/com/solutions/base/config/xml/service-context.xml"
 		}
 		
 		
@@ -28,11 +29,11 @@ import junit.framework.TestCase;
 public class DaoTest extends TestCase {
 	
 	@Autowired
-	public TestDao testDao;
+	public TestService testService;
 
 	
 	@Test
-	@Transactional
+	//@Transactional
 	public void testGeniricDao() {
 		
 		test entity = new test();
@@ -40,10 +41,10 @@ public class DaoTest extends TestCase {
 		entity.setField1("campo1test");
 		entity.setField2("name2");
 		
-		testDao.save(entity);
-		testDao.flush();
-		testDao.clear();
+		testService.save(entity);
+		testService.flush();
+		testService.clear();
 		
-		System.out.println(testDao.findAll());
+		System.out.println(testService.findAll());
 	}
 }

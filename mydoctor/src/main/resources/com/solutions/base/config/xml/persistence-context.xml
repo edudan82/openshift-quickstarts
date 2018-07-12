@@ -11,12 +11,13 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<context:annotation-config/>
-	
+	<context:annotation-config/>	
 	<context:component-scan base-package="com.solutions.base.mvc.dao"></context:component-scan>
+	<context:component-scan base-package="com.solutions.mydoctor.mvc.dao"></context:component-scan>
 
     <util:list id="packagesToScanList" list-class="java.util.ArrayList">
-				<value>com.solutions.base.mvc.entity</value> 
+				<value>com.solutions.base.mvc.entity</value>
+				<value>com.solutions.mydoctor.mvc.entity</value>  
     </util:list>
 
 	
@@ -65,7 +66,7 @@
 			</property>
 		</bean>
 	
-		<tx:annotation-driven transaction-manager="current" />
+		<tx:annotation-driven transaction-manager="transactionManager" />
 
 		<bean id="sessionFactory" parent="sessionFactoryPropertiesDevelopment">
 			<property name="dataSource" ref="dataSourceDevelopment"></property>

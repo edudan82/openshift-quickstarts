@@ -3,10 +3,10 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="IsawTools" version="3.1">
+	id="WebSolutions" version="3.1">
 
 
-	<display-name>IsawTools</display-name>
+	<display-name>WebSolutions</display-name>
 
 	<welcome-file-list>
 		<welcome-file>/default</welcome-file>
@@ -20,11 +20,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				classpath:com/citi/isawtools/config/xml/dispatcher-servlet.xml
-				classpath:com/citi/connection/config/xml/dispatcher-servlet.xml
-				classpath:com/citi/security/config/xml/dispatcher-servlet.xml
-				classpath:com/citi/logadmin/config/xml/dispatcher-servlet.xml
-
+				classpath:com/solutions/base/config/xml/dispatcher-servlet.xml
 			</param-value>
 		</init-param>
 
@@ -42,40 +38,16 @@
 	</listener>
 
 
-
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>
-		
-			classpath:com/citi/isawtools/config/xml/persistence-context.xml
-			classpath:com/citi/isawtools/config/xml/service-context.xml
-			classpath:com/citi/isawtools/config/xml/application-context.xml
-
-			
-
-			classpath:com/citi/security/config/xml/persistence-context.xml
-			classpath:com/citi/security/config/xml/service-context.xml
-			classpath:com/citi/security/config/xml/application-context.xml
-
-
-
-			classpath:com/citi/connection/config/xml/persistence-context.xml
-			classpath:com/citi/connection/config/xml/service-context.xml
-			classpath:com/citi/connection/config/xml/application-context.xml
-
-
-			classpath:com/citi/logadmin/config/xml/persistence-context.xml
-			classpath:com/citi/logadmin/config/xml/service-context.xml
-			classpath:com/citi/logadmin/config/xml/application-context.xml
-			
-			classpath:com/citi/security/config/xml/security-context.xml
+		<param-value>		
+			classpath:com/solutions/base/config/xml/persistence-context.xml
 		</param-value>
-
 	</context-param>
 
 	<context-param>
 		<param-name>spring.profiles.default</param-name>
-		<param-value>uat</param-value>
+		<param-value>development</param-value>
 	</context-param>
 
 	<resource-ref>
@@ -85,23 +57,9 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 
-
-	<filter>
-		<display-name>springSecurityFilterChain</display-name>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 	
 	<session-config>
     	<session-timeout>30</session-timeout>
 	</session-config>
-	
-
-
 
 </web-app>

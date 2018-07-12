@@ -1,7 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	    http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+
+
+    <util:list id="packagesToScanList" list-class="java.util.ArrayList">
+				<value>com.solutions.base.mvc.entity</value> 
+    </util:list>
+	
+
+	
+
+    
+    <bean id="sessionFactoryPropertiesDevelopment" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" abstract="true">
+		<property name="packagesToScan" ref="packagesToScanList"/>	
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>					
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<prop key="hibernate.cache.region_prefix"></prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.use_structured_entries">true</prop>
+				<prop key="hibernate.cache.provider_configuration_file_resource_path">/ehcache-development.xml</prop>	
+				<prop key="net.sf.ehcache.configurationResourceName">/ehcache-development.xml</prop>
+				
+				<!-- ********************************************************************* 
+				use this property only in development never in other environments <prop key="hibernate.hbm2ddl.auto">update</prop> 
+					********************************************************************* -->
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<!-- ********************************************************************* -->
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactoryPropertiesProduction" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" abstract="true">
+		<property name="packagesToScan" ref="packagesToScanList"/>	
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>					
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<prop key="hibernate.cache.region_prefix"></prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.use_structured_entries">true</prop>
+				<prop key="hibernate.cache.provider_configuration_file_resource_path">/ehcache-production.xml</prop>	
+				<prop key="net.sf.ehcache.configurationResourceName">/ehcache-production.xml</prop>
+				
+				<!-- ********************************************************************* 
+				use this property only in development never in other environments <prop key="hibernate.hbm2ddl.auto">update</prop> 
+					********************************************************************* -->
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<!-- ********************************************************************* -->
+			</props>
+		</property>
+	</bean>
+	
+	
+	<beans profile="development">	
+	
+		<tx:annotation-driven transaction-manager="current" />
+
+		<bean id="sessionFactory" parent="sessionFactoryPropertiesDevelopment">
+			<property name="dataSource" ref="dataSourceDevelopment"></property>
+		</bean>
+
+		<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+			<qualifier value="current" />
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+	    <jee:jndi-lookup id="dataSourceDevelopment" jndi-name="jdbc/JbpmDevelopment" expected-type="javax.sql.DataSource">
+	    </jee:jndi-lookup>
+
+	</beans>
+	
+	
+	
+	<beans profile="production">	
+	
+		<tx:annotation-driven transaction-manager="current" />
+
+		<bean id="sessionFactory" parent="sessionFactoryPropertiesProduction">
+			<property name="dataSource" ref="dataSourceProduction"></property>
+		</bean>
+
+		<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+			<qualifier value="current" />
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<jee:jndi-lookup id="dataSourceProduction" jndi-name="jdbc/JbpmProduction" expected-type="javax.sql.DataSource">
+		</jee:jndi-lookup>
+
+	</beans>
+    
+    
 
 </beans>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ehcache>
+<ehcache name="production">
+
+	<diskStore path="java.io.tmpdir/ehcache-production" />
+
+	<defaultCache 
+		maxEntriesLocalHeap="5000" 
+		eternal="false"
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="240"
+		maxEntriesLocalDisk="10000" 
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU">
+		<persistence strategy="localTempSwap" />
+	</defaultCache>
+
+	<cache 
+	    name="org.hibernate.cache.internal.StandardQueryCache"
+		maxEntriesLocalHeap="2500" 
+		eternal="false" 
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="240">
+		<persistence strategy="localTempSwap" />
+	</cache>
+
+	<cache 
+	    name="org.hibernate.cache.spi.UpdateTimestampsCache"
+		maxEntriesLocalHeap="5000" 
+		eternal="true">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+</ehcache>

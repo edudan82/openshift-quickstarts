@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.solutions.base.mvc.dao.TestDao;
 import com.solutions.base.mvc.entity.test;
 import com.solutions.base.mvc.service.TestService;
 
@@ -19,8 +17,10 @@ import junit.framework.TestCase;
 @ContextConfiguration(
 					  
 		locations= {
-					"/com/solutions/base/config/xml/persistence-context.xml",
-				"/com/solutions/base/config/xml/service-context.xml"
+				"/com/solutions/base/config/xml/persistence-context.xml",
+				"/com/solutions/base/config/xml/service-context.xml",
+				"/com/solutions/mydoctor/config/xml/persistence-context.xml",
+				"/com/solutions/mydoctor/config/xml/service-context.xml"
 		}
 		
 		
@@ -32,7 +32,7 @@ public class DaoTest extends TestCase {
 	public TestService testService;
 
 	
-	@Test
+	//@Test
 	//@Transactional
 	public void testGeniricDao() {
 		

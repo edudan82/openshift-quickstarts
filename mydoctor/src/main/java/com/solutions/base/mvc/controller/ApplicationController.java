@@ -10,8 +10,6 @@ public class ApplicationController {
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public String goHome(){
 		
-		
-		
 		return "home";
 
 	}
@@ -19,9 +17,7 @@ public class ApplicationController {
 	@RequestMapping(value="/default", method=RequestMethod.GET)
 	public String goDefault(){
 		
-		
-		
-		return "home";
+		return "default";
 
 	}
 

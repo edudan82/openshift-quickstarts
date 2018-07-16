@@ -1,14 +1,16 @@
 package com.solutions.mydoctor.mvc.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.Version;
 
 import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
@@ -19,15 +21,12 @@ import org.hibernate.annotations.GenericGenerator;
 public class Paciente {
 	
 	@Id
-	@GeneratedValue(
-		    strategy= GenerationType.AUTO, 
-		    generator="native"
-	)
-	@GenericGenerator(
-		    name = "native", 
-		    strategy = "native"
-	)
+	@GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+	@GenericGenerator(name = "native", strategy = "native"	)
 	private Long id;
+	
+	@Version
+	private int version;
 	
 	@Column
 	private String nombre;
@@ -48,6 +47,17 @@ public class Paciente {
 	@Formula(value = "concat(nombre, ' ', apellidos)"  )
 	@Column(name="nombre_completo")
 	private String nombreCompleto;
+	
+	@OneToMany(mappedBy="paciente")
+	private List<ConsultaMedica> consultaMedicas;
+	
+	
+	//helper method
+    public void addConsultaMedica(ConsultaMedica consultaMedica) {
+        this.consultaMedicas.add(consultaMedica);
+        consultaMedica.setPaciente(this);
+    }
+	
 
 
 	public Long getId() {
@@ -100,14 +110,16 @@ public class Paciente {
 	}
 
 
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
 
 
 	@Override
@@ -119,18 +131,14 @@ public class Paciente {
 		if (getClass() != obj.getClass())
 			return false;
 		Paciente other = (Paciente) obj;
-		if (apellidos == null) {
-			if (other.apellidos != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!apellidos.equals(other.apellidos))
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
+
 
 
 	@Override

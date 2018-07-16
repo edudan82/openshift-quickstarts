@@ -2,17 +2,46 @@
 <!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="DefaultTemplate" template="/WEB-INF/views/template/SiteTemplate.jsp">
-		<put-attribute name="title" value="Home" />
+
+    <definition name="myapp" template="/WEB-INF/views/template/SiteTemplate.jsp">
+		<put-attribute name="title" value="Inicio" />
 		<put-attribute name="header" value="/WEB-INF/views/template/Header.jsp" />
-		<put-attribute name="menu" value="" />
-		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/Footer.jsp" />
 	</definition>
 	
-	
-	<definition name="home" extends="DefaultTemplate">
-	    <put-attribute name="body" value="/index.jsp" />
+	<definition name="myapp.home" extends="myapp">
+		<put-attribute name="content">
+			<definition template="/WEB-INF/views/template/Home.jsp">
+				<put-attribute name="home" value="" cascade="true"/>			
+			</definition>		
+		</put-attribute>
 	</definition>
+	
+	<definition name="myapp.main" extends="myapp">
+		<put-attribute name="content">
+			<definition template="/WEB-INF/views/template/Content.jsp">
+				<put-attribute name="sidebar" value="" cascade="true"/>
+				<put-attribute name="main" value="" cascade="true"/>			
+			</definition>		
+		</put-attribute>
+	</definition>
+	
+	
+	
+	<definition name="default" extends="myapp.main">
+				<put-attribute name="sidebar" value="/WEB-INF/views/template/Sidebar.jsp" cascade="true"/>
+				<put-attribute name="main" value="/WEB-INF/views/home/index.jsp" cascade="true"/>			
+	</definition>
+	
+	<definition name="home" extends="myapp.home">
+				<put-attribute name="home" value="/WEB-INF/views/home/index.jsp" cascade="true"/>			
+	</definition>
+	
+	
+	
+	
+	
+	
+	
 	
 </tiles-definitions>

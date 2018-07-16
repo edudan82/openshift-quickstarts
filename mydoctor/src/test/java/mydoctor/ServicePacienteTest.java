@@ -18,6 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solutions.mydoctor.mvc.entity.ConsultaMedica;
 import com.solutions.mydoctor.mvc.entity.Paciente;
 import com.solutions.mydoctor.mvc.service.PacienteService;
 
@@ -44,7 +45,7 @@ public class ServicePacienteTest extends TestCase {
 	public SessionFactory sessionFactory;
 
 	
-	@Test
+//	@Test
 	@Transactional
 	@Rollback(false)
 	public void pacienteServiceAdd() {
@@ -56,7 +57,7 @@ public class ServicePacienteTest extends TestCase {
 		
 	
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		LocalDate fechaNacimiento = LocalDate.parse("19-04-2018", formatter);
+		LocalDate fechaNacimiento = LocalDate.parse("19-04-1982", formatter);
 		paciente.setFechaNacimiento(fechaNacimiento );
 	
 		
@@ -70,6 +71,43 @@ public class ServicePacienteTest extends TestCase {
 		c.add(Restrictions.like("nombreCompleto", "%D%"));
 		
 		System.out.println(c.list());
+
+	}
+	
+	@Test
+	@Transactional
+	@Rollback(false)
+	public void pacienteAndCitaServiceAdd() {
+		
+		Paciente paciente = new Paciente();
+		paciente.setApellidos("Cardenas");
+		paciente.setNombre("Daniel");
+		paciente.setSexo("M");
+		
+	
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate fechaNacimiento = LocalDate.parse("19-04-1982", formatter);
+		paciente.setFechaNacimiento(fechaNacimiento );
+	
+		
+		pacienteService.save(paciente);
+		pacienteService.flush();
+		pacienteService.clear();
+		
+		ConsultaMedica consultaMedica = new ConsultaMedica();
+		consultaMedica.setFechaConsulta(LocalDate.now());
+		consultaMedica.setDiagnostico("enfermo de gripa");
+		consultaMedica.setPaciente(paciente);
+		
+		sessionFactory.getCurrentSession().save(consultaMedica);
+		
+		
+		
+		
+		
+		System.out.println(pacienteService.findAll());
+		
+
 
 	}
 }

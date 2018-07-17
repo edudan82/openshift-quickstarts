@@ -58,20 +58,20 @@
         
         .popup__bar
         {
-                display:flex;   
-                display: -webkit-flex;  
-               -webkit-justify-content: flex-end;
-               justify-content: flex-end;
-                background-color:red;
+            display:flex;   
+            display: -webkit-flex;  
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+            background-color:red;
         }
         
         .popup__title
         {
-                display:flex;   
-                display: -webkit-flex;  
-               -webkit-justify-content: center;
-               justify-content: center;
-              background-color :yellow;
+             display:flex;   
+             display: -webkit-flex;  
+             -webkit-justify-content: center;
+             justify-content: center;
+             background-color :yellow;
         
         }
         .popup__message
@@ -83,11 +83,11 @@
         
         .popup__actions
         {
-            display:flex;   
-            display: -webkit-flex;  
-            -webkit-justify-content: flex-end;
-            justify-content: flex-end;
-            background-color:purple;
+             display:flex;   
+             display: -webkit-flex;  
+             -webkit-justify-content: flex-end;
+             justify-content: flex-end;
+             background-color:purple;
            
         }        
 
@@ -106,6 +106,81 @@
         }
         
         
+        
+        
+        .btn, .btn:link, .btn:visited {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1.5rem 4rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all .2s;
+	position: relative;
+	font-size: 1 rem;
+	border: none;
+	cursor: pointer;
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
+}
+
+.btn:active, .btn:focus {
+	outline: none;
+	transform: translateY(-1px);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+	background-color: white;
+	color: gret;
+}
+
+.btn--white::after {
+	background-color: white;
+}
+
+.btn--green {
+	background-color: green;
+	color: white;
+}
+
+.btn--green::after {
+	background-color: green;
+}
+
+.btn--red {
+	background-color: red;
+	color: white;
+}
+
+.btn--red::after {
+	background-color: red;
+}
+
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 10rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all .4s;
+}
+
+.btn--animated {
+	animation: moveInBottom .5s ease-out .75s;
+	animation-fill-mode: backwards;
+}
         
         
     </style>
@@ -130,8 +205,8 @@
                 </p>
              </div>
              <div class="popup__actions">   
-                <a class="btn__green">save</a>
-                <a class="btn__red">cancel</a>
+                <a class="btn btn__green">save</a>
+                <a class="btn btn__red">cancel</a>
             </div>
             
     </div>

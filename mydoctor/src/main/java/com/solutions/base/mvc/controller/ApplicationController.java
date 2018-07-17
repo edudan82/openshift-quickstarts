@@ -20,6 +20,13 @@ public class ApplicationController {
 		return "default";
 
 	}
+	
+	@RequestMapping(value="/ajaxtest", method=RequestMethod.GET)
+	public String goAjaxCall(){
+		
+		return "ajaxtest";
+
+	}
 
 
 }

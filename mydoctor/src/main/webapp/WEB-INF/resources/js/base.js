@@ -16,14 +16,14 @@ var MyAjax = function(targetObjectId,url,async){
 			
 			
 			success     : function(response) {
-							alert(response);
+							
 							$('#' +  _targetObjectId).html(response);
 			
 						}       ,
 			
 						
 			error      : function(x) {
-				
+						
 							alert(x.status);
 			
 						}      

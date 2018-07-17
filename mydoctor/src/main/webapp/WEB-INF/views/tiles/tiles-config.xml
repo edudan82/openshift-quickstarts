@@ -38,7 +38,10 @@
 	</definition>
 	
 	
-	
+     <definition name="pacienteInicio" template="/WEB-INF/views/template/Content.jsp">
+				<put-attribute name="sidebar" value="/WEB-INF/views/paciente/PacienteMenu.jsp" cascade="true"/>
+				<put-attribute name="main" value="/WEB-INF/views/paciente/PacienteInicio.jsp" cascade="true"/>				
+	</definition>
 	
 	
 	

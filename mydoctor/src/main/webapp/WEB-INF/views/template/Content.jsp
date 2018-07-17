@@ -1,5 +1,5 @@
 		<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-		<div class="content">
+		<div class="content" tabindex="0"  >
 			<div class="sidebar">
 				<tiles:insertAttribute name="sidebar" />
 			</div>
@@ -7,3 +7,4 @@
 				<tiles:insertAttribute name="main" />
 			</div>		
 		</div>
+		

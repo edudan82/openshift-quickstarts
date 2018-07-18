@@ -1,4 +1,6 @@
-
+		<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+		
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>My Doctor</title>
@@ -310,23 +312,20 @@
 				
 		</style>
 		
-		<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-		<script type="text/javascript" src=  "<c:url value="/js/jquery-3.3.1.js"/>">  </script>
-		<script type="text/javascript" src=  "<c:url value="/js/base.js"/>">  </script>
-		<script type="text/javascript" src=  "<c:url value="/js/mydoctor.js"/>">  </script>
-		
-		<script type="text/javascript" > var myContextPath = "${pageContext.request.contextPath}";  </script>
+
+
 		
 		
 		
+		
+	<script type="text/javascript" > var myContextPath = "${pageContext.request.contextPath}";  </script>	
 	</head>
 	<body>
 		<div class="container">
 			<div class="header">
 				<tiles:insertAttribute name="header" />
 			</div>
-			<div id="content">
+			<div class="content" id="content">
 				<tiles:insertAttribute name="content" />
 			</div>
 			<div class="footer">
@@ -334,4 +333,7 @@
 			</div>			
 		</div>
 	</body>
+		<script type="text/javascript" src=  "<c:url value="/js/jquery-3.3.1.js"/>">  </script>
+		<script type="text/javascript" src=  "<c:url value="/js/base.js"/>">  </script>
+		<script type="text/javascript" src=  "<c:url value="/js/mydoctor.js"/>">  </script>
 </html>

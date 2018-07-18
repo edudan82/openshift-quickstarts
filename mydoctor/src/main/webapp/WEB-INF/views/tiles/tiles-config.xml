@@ -40,14 +40,25 @@
 	
      <definition name="pacienteInicio" template="/WEB-INF/views/template/Content.jsp">
 				<put-attribute name="sidebar" value="/WEB-INF/views/paciente/PacienteMenu.jsp" cascade="true"/>
-				<put-attribute name="main" value="/WEB-INF/views/paciente/PacienteInicio.jsp" cascade="true"/>				
+						
+				<put-attribute name="main">
+					<definition template="/WEB-INF/views/template/Main.jsp">
+							<put-attribute name="form" value="/WEB-INF/views/paciente/PacienteInicio.jsp" cascade="true"/>
+					</definition>		
+				</put-attribute>		
 	</definition>
 	
 	
-	<definition name="pacienteAgregar" template="/WEB-INF/views/template/Content.jsp">
-				<put-attribute name="sidebar" value="/WEB-INF/views/paciente/PacienteMenu.jsp" cascade="true"/>
-				<put-attribute name="main" value="/WEB-INF/views/paciente/PacienteAgregar.jsp" cascade="true"/>				
+	<definition name="pacienteAgregar" template="/WEB-INF/views/template/Main.jsp">
+				<put-attribute name="form" value="/WEB-INF/views/paciente/PacienteAgregar.jsp" cascade="true"/>				
 	</definition>
+	
+	<definition name="pacienteEditar" template="/WEB-INF/views/template/Main.jsp">
+				<put-attribute name="form" value="/WEB-INF/views/paciente/PacienteAgregar.jsp" cascade="true"/>				
+	</definition>
+	
+
+	
 	
 	
 	

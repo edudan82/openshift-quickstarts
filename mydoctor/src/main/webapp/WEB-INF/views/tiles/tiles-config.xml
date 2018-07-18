@@ -44,6 +44,11 @@
 	</definition>
 	
 	
+	<definition name="pacienteAgregar" template="/WEB-INF/views/template/Content.jsp">
+				<put-attribute name="sidebar" value="/WEB-INF/views/paciente/PacienteMenu.jsp" cascade="true"/>
+				<put-attribute name="main" value="/WEB-INF/views/paciente/PacienteAgregar.jsp" cascade="true"/>				
+	</definition>
+	
 	
 	
 	

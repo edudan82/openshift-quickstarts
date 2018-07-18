@@ -1,16 +1,18 @@
-var MyAjax = function(targetObjectId,url,async){
+
+var MyAjax = function(targetObjectId,url,async,type){
 	
 	var _targetObjectId = targetObjectId;
 	var _url = url;
 	var _async = async;
+	var _type = type
 	
-	this.loadAjax = function(){
+	this.ajaxCall = function(){
 	    
 		$.ajax({
 		    
 			url        : _url   ,
 			async      : _async ,
-			type       : "GET"  ,
+			type       : _type  ,
 			contentType: "application/x-www-form-urlencoded; charset-UTF-8",
 			cache      : false  ,
 			

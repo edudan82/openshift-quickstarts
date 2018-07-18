@@ -59,6 +59,12 @@ public class Paciente {
     }
 	
 
+    
+    
+
+
+
+
 
 	public Long getId() {
 		return id;
@@ -107,6 +113,34 @@ public class Paciente {
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+
+
+
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+
+
+
+
+	public List<ConsultaMedica> getConsultaMedicas() {
+		return consultaMedicas;
+	}
+
+
+
+
+
+	public void setConsultaMedicas(List<ConsultaMedica> consultaMedicas) {
+		this.consultaMedicas = consultaMedicas;
 	}
 
 

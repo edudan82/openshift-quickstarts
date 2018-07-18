@@ -1,8 +1,8 @@
 
-var MyAjax = function(targetObjectId,url,async,type){
+var MyAjax = function(targetObjectId , action, async, type){
 	
 	var _targetObjectId = targetObjectId;
-	var _url = url;
+	var _url = myContextPath + action;
 	var _async = async;
 	var _type = type
 	
@@ -17,9 +17,15 @@ var MyAjax = function(targetObjectId,url,async,type){
 			cache      : false  ,
 			
 			
-			success     : function(response) {
-							
-							$('#' +  _targetObjectId).html(response);
+			success     : function(response) {							
+						
+					        var $el = $('#' +  _targetObjectId);
+
+					        $el.fadeOut(200, function()
+					        {
+					            $el.html(response).fadeIn(300);
+					        });
+
 			
 						}       ,
 			

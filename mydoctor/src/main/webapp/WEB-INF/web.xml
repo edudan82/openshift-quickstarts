@@ -42,6 +42,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>		
 			classpath:com/solutions/base/config/xml/persistence-context.xml
+			classpath:com/solutions/base/config/xml/service-context.xml
 		</param-value>
 	</context-param>
 

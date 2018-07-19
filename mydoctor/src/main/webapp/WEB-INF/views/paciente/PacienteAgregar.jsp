@@ -1,6 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<form:form method="post" action="${pageContext.request.contextPath}/pacienteAgregar" modelAttribute="paciente">
+<form:form method="post" action="${pageContext.request.contextPath}/pacienteGuardar" modelAttribute="paciente" id="pacienteGuardarForm">
       <table>
           <tr>
               <td>Id:</td>
@@ -22,10 +22,7 @@
               <td>Sexo:</td>
               <td><form:input path="sexo" /></td>
           </tr>
-          <tr>
-              <td colspan="2">
-                  <button id="pacienteGuardar">Guardar</button>
-              </td>
-          </tr>
-      </table>
+       </table>
   </form:form>
+  
+  <li><a id="pacienteGuardar" >Guardar</a></li>

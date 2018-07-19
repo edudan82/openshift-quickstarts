@@ -59,11 +59,6 @@ public class Paciente {
     }
 	
 
-    
-    
-
-
-
 
 
 	public Long getId() {

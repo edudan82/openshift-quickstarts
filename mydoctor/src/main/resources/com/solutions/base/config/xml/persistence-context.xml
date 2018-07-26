@@ -120,7 +120,7 @@
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 		
-		<jee:jndi-lookup id="dataSourceProduction" jndi-name="jdbc/JbpmProduction" expected-type="javax.sql.DataSource">
+		<jee:jndi-lookup id="dataSourceProduction" jndi-name="java:jboss/datasources/MySQLDS" expected-type="javax.sql.DataSource">
 		</jee:jndi-lookup>
 
 	</beans>

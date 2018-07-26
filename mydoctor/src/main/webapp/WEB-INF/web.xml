@@ -9,7 +9,7 @@
 	<display-name>Solutions</display-name>
 
 	<welcome-file-list>
-		<welcome-file>/default</welcome-file>
+		<welcome-file>/home</welcome-file>
 	</welcome-file-list>
 
 	<servlet>

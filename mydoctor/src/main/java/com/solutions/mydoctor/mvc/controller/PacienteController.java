@@ -5,13 +5,20 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.ScrollableResults;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.solutions.base.mvc.filter.CustomFilter;
 import com.solutions.mydoctor.mvc.entity.Paciente;
 import com.solutions.mydoctor.mvc.service.PacienteService;
 
@@ -20,11 +27,12 @@ public class PacienteController {
 	
 	@Autowired
 	PacienteService pacienteService;
+	@Autowired
+	SessionFactory sessionFactory;
 	
 	@RequestMapping(value="/pacienteInicio", method=RequestMethod.GET)
-	public String goPacienteInicio(Model model){
+	public String goPacienteInicio(){
 		
-		model.addAttribute("pacienteBuscar", new Paciente());
 		
 		return "pacienteInicio";
 
@@ -40,36 +48,35 @@ public class PacienteController {
 	}
 	
 	
-	@RequestMapping(value="/pacienteEditar", method=RequestMethod.GET)
-	public String goPacienteEditar(Model model){
 	
-		model.addAttribute("paciente", dummyPaciente());
+	@RequestMapping(value="/pacienteBuscar", method=RequestMethod.GET)
+	public String goPacienteBuscarGet(Model model){
 		
-		return "pacienteAgregar";
-
-	}
-	
-	@RequestMapping(value="/pacienteBuscar", method=RequestMethod.POST)
-	public String goPacienteBuscar(Paciente pacienteBuscar,BindingResult bindingResult, Model model){
-	
-
-		
-		model.addAttribute("pacienteLista", pacienteService.findAll());
+		model.addAttribute("customFilter",  new CustomFilter());
 		
 		return "pacienteBuscar";
 
 	}
 	
+	
+	@RequestMapping(value="/pacienteMostrar", method=RequestMethod.POST)
+	public String goPacienteBuscarPost(CustomFilter myCustomFilter,BindingResult bindingResult, Model model){		
+		
+		model.addAttribute("myCustomFilter", pacienteService.updateCustomFilter(myCustomFilter));
+		System.out.println(myCustomFilter);
+		model.addAttribute("pacienteList", pacienteService.findAllPacientesByName(myCustomFilter));
+		System.out.println(myCustomFilter);
+
+		return "pacienteBuscar";
+
+	}
+	
+	
+	
+	
 	@RequestMapping(value="/pacienteGuardar", method=RequestMethod.POST)
 	public String goPacienteGuardar(Paciente paciente,BindingResult bindingResult, Model model){
-	
-		System.out.println(paciente);
-		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		LocalDate fechaNacimiento = LocalDate.parse("19-04-1982", formatter);
-		paciente.setFechaNacimiento(fechaNacimiento );
-		
-		System.out.println(paciente);
+
 		
 		pacienteService.save(paciente);
 		
@@ -100,13 +107,16 @@ public class PacienteController {
 	}
 	
 	
-	
-	public List<Paciente> dummyPacienteList(){
-		List<Paciente> pacienteList = new ArrayList<Paciente>();
+	@Transactional
+	public List<Paciente> dummyPacienteList(CustomFilter myCustomFilter){
 		
-		pacienteList.add(dummyPaciente());
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Paciente.class);
 		
-		return pacienteList;
+		criteria.add(Restrictions.like("nombreCompleto", myCustomFilter.getValues().get(0), MatchMode.ANYWHERE));
+		criteria.setFirstResult(myCustomFilter.getPageNumber());
+		criteria.setMaxResults(myCustomFilter.getRecordsPerPage());
+		
+		return criteria.list();
 	}
 	
 	

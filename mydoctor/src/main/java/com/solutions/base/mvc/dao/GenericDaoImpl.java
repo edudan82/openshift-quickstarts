@@ -135,9 +135,6 @@ public abstract class GenericDaoImpl<ENTITY, ID extends Serializable> implements
 	}
 	
 	
-	
-	
-	
 
 	@Override
 	public ENTITY findById(ID id) {
@@ -146,11 +143,6 @@ public abstract class GenericDaoImpl<ENTITY, ID extends Serializable> implements
 
 		
 	}
-	
-	
-	
-	
-	
 	
 	
 

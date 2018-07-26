@@ -19,6 +19,10 @@
               <td><form:input path="apellidos" /></td>
           </tr>
           <tr>
+              <td>Fecha Nacimiento:</td>
+              <td><form:input path="fechaNacimiento"/></td>
+          </tr>
+          <tr>
               <td>Sexo:</td>
               <td><form:input path="sexo" /></td>
           </tr>

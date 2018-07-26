@@ -61,6 +61,10 @@
 				<put-attribute name="form" value="/WEB-INF/views/paciente/PacienteBuscar.jsp" cascade="true"/>				
 	</definition>
 	
+	<definition name="pacienteMostrar" template="/WEB-INF/views/template/Main.jsp">
+				<put-attribute name="form" value="/WEB-INF/views/paciente/PacienteBuscar.jsp" cascade="true"/>				
+	</definition>
+	
 
 	
 	

@@ -14,6 +14,7 @@ import javax.persistence.Version;
 
 import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity(name = "Paciente")
@@ -35,6 +36,7 @@ public class Paciente {
 	private String apellidos;
 	
 	@Column(name="fecha_nacimiento")
+	@DateTimeFormat(pattern= "dd-MM-yyyy")
 	private LocalDate fechaNacimiento;
 	
 	@Column
@@ -136,6 +138,20 @@ public class Paciente {
 
 	public void setConsultaMedicas(List<ConsultaMedica> consultaMedicas) {
 		this.consultaMedicas = consultaMedicas;
+	}
+
+
+
+
+	public int getEdad() {
+		return edad;
+	}
+
+
+
+
+	public String getNombreCompleto() {
+		return nombreCompleto;
 	}
 
 

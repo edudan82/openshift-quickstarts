@@ -74,7 +74,7 @@ public class ServicePacienteTest extends TestCase {
 
 	}
 	
-	@Test
+	//@Test
 	@Transactional
 	@Rollback(false)
 	public void pacienteAndCitaServiceAdd() {

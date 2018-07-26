@@ -104,13 +104,12 @@
 					<!-- ********************************************************************* 
 					use this property only in development never in other environments <prop key="hibernate.hbm2ddl.auto">update</prop> 
 						********************************************************************* -->
-					<prop key="hibernate.hbm2ddl.auto">validate</prop>
 					<!-- ********************************************************************* -->
 				</props>
 			</property>
 		</bean>
 	
-		<tx:annotation-driven transaction-manager="current" />
+		<tx:annotation-driven transaction-manager="transactionManager" />
 
 		<bean id="sessionFactory" parent="sessionFactoryPropertiesProduction">
 			<property name="dataSource" ref="dataSourceProduction"></property>

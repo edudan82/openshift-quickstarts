@@ -1,0 +1,1623 @@
+﻿<!DOCTYPE html >
+<html >
+<head>
+    <title>Untitled Page</title>
+     <style type="text/css">
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  
+ 
+@media only screen and (min-width: 37em)  {   
+ 
+        /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */                    
+        html {
+            font-size: 50%; 
+        }
+}
+  
+
+ 
+
+@media only screen and (min-width: 57em)  {
+ 
+        /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+        html {
+            font-size: 56%; 
+        }
+}
+
+    
+@media only screen and (min-width: 75em) {
+  
+        /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+        html {
+            font-size: 62%; 
+        }
+}
+     
+@media only screen and (min-width: 112em) {
+  
+        /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+        html {
+            font-size: 75%; 
+        }
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  box-sizing: border-box;
+  padding: 0; 
+
+    height: 100vh;
+  width: 100vw;
+  background:red;
+
+
+}
+
+
+  
+  
+  
+
+
+
+        @media only screen and (min-width: 37em)  {
+   
+ 
+            /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */
+                    
+            body {
+                padding: 0; 
+            } 
+  
+        }
+ 
+
+        @media only screen and (min-width: 57em)  {
+ 
+            /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+            body {
+                padding: 2rem 2rem 4rem 2rem; 
+            } 
+        }
+    
+        @media only screen and (min-width: 75em) {
+  
+            /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+            body {
+                padding: 6rem 6rem 8rem 6rem; 
+            } 
+        }
+
+        @media only screen and (min-width: 112em) {
+  
+             /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+
+            body {
+                padding: 8rem 8rem 12rem 8rem; 
+            } 
+  
+        } 
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+.app{
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  color: #708090;
+  background-image: linear-gradient(to right bottom, red, white);
+  background-size: cover;
+  background-repeat: no-repeat; 
+  overflow-y:hidden;
+  margin: auto;
+  min-width: 600px;
+  box-shadow: 0 .4rem .8rem 0 rgba(0, 0, 0, 0.4), 0 .6rem 2rem 0 rgba(0, 0, 0, 0.6);
+  
+}
+
+::selection {
+  background-color: white;
+  color: red;
+  }  
+        
+ 
+ 
+      
+        
+        .master__content-1
+        {
+        /*global app size*/
+            flex:0 1 auto;
+    	    background:white;
+    	
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            align-items: stretch;
+            opacity:0.9;
+            
+
+
+    	
+         }
+    
+         .master__content-1::after {
+              content: '';
+              width: 0;
+              overflow: hidden;
+              visibility: hidden;
+              float: left;
+              
+              /*media query normal*/
+              height: 100vh;
+        }
+        
+          
+        
+            
+          
+        @media only screen and (min-width: 37em)  {
+   
+ 
+            /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */
+
+                   .master__content-1::after {
+                        height: 100vh; 
+                     } 
+  
+        }
+ 
+
+        @media only screen and (min-width: 57em)  {
+ 
+            /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+                   .master__content-1::after {
+                        height: 95vh; 
+                        
+                        
+                        
+                     } 
+        }
+    
+        @media only screen and (min-width: 75em) {
+  
+            /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+                   .master__content-1::after {
+                        height: 90vh; 
+                     } 
+        }
+
+        @media only screen and (min-width: 112em) {
+  
+             /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+
+                   .master__content-1::after {
+                        height: 85vh;
+                     } 
+  
+        } 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        .master__child-1-1	
+        {
+  	   
+           flex-grow:1;
+   	      
+
+
+        }
+    
+        .master__content-2	
+        {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+           
+           
+           position:relative;
+
+        }	
+        
+        
+
+    
+        .master__child-2-1
+        {
+            /*full row - master__content          0 0 auto  */
+            /*full row - available space  1 0 auto  */
+            /*full row - available space + remain  0 0 100%   full row 100 * 100 */
+             /*full row - available space - remain  0 1 100%  */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:100%; 
+        }
+        
+        .master__content-3	
+        {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            justify-content:space-between;
+            
+            
+            position:relative;
+
+        }
+        
+        .master__child-3-1
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+   	  
+        }
+        
+        
+        .master__child-3-2
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:1;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+   	        
+        }
+        
+        
+        .master__child-3-3
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+   	  
+        }
+        
+        .master__content-4	
+        {
+
+display: none;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            justify-content:space-between;
+            
+  
+            
+            position:relative;
+            
+            
+        }
+        
+        .master__child-4-1
+        {
+
+          /*  background:rgba(1,1,1,0.1);*/
+   	        
+        }
+        
+        .master__child-4-2
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            background:rgba(1,1,1,0.9);
+            flex-grow:0;
+            flex-shrink :0;
+            flex-basis:70%; 
+           
+   	        
+        }
+        
+        .master__child-4-3
+        {
+
+            /*  background:rgba(1,1,1,0.1);*/
+   	        
+        }
+        
+        
+        @media only screen and (min-width: 37em)  {
+   
+ 
+            /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */
+
+                   .master__content-4 {
+                        display: none;
+                     } 
+  
+        }
+ 
+
+        @media only screen and (min-width: 57em)  {
+ 
+            /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+                   .master__content-4 {
+                        display: none;
+                     } 
+        }
+    
+        @media only screen and (min-width: 75em) {
+  
+            /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+                   .master__content-4 {
+                        display: flex;
+                     } 
+        }
+
+        @media only screen and (min-width: 112em) {
+  
+             /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+
+                   .master__content-4 {
+                        display: flex;
+                     } 
+  
+        } 
+        
+        
+        .master__content-7 {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            justify-content:space-between;
+            
+            
+            position:relative;
+
+        }       
+  
+  
+  
+  
+        
+        .master__content-5	
+        {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            justify-content:space-between;
+            
+            
+            position:relative;
+        }
+        
+
+        
+        .master__child-5-1
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:1;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+            
+            
+   	        
+        }
+        
+        
+        @media only screen and (min-width: 75em) {
+  
+    /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+           .master__content-5 {
+                padding:2rem;
+             } 
+}
+
+            @media only screen and (min-width: 112em) {
+  
+                 /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+
+                       .master__content-5 {
+                            padding:4rem;
+                         } 
+  
+            } 
+        
+        .master__content-6	
+        {
+
+  
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            justify-content:space-between;
+            
+            position:relative;
+            
+
+            
+        }
+        
+        .master__child-6-1
+        {
+           /* background:rgba(1,1,1,0.1);*/
+        }
+        
+         .master__child-6-2
+        {
+            flex-grow:0;
+            flex-shrink :0;
+            flex-basis:40%; 
+            background:rgba(1,1,1,0.2);
+        }
+        
+        .master__child-6-3
+        {
+             /* background:rgba(1,1,1,0.1);*/
+        }
+        
+        
+
+        
+@media only screen and (min-width: 37em)  {
+   
+ 
+    /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */
+
+           .master__content-6 {
+                display: none;
+             } 
+  
+}
+ 
+
+@media only screen and (min-width: 57em)  {
+ 
+    /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+           .master__content-6 {
+                display: none;
+             } 
+}
+    
+@media only screen and (min-width: 75em) {
+  
+    /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+           .master__content-6 {
+                display: flex;
+             } 
+}
+
+@media only screen and (min-width: 112em) {
+  
+     /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+
+           .master__content-6 {
+                display: flex;
+             } 
+  
+} 
+
+        
+        
+        
+         .app__content-1
+        {
+
+      	    background:#F5FFFA;
+    	
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            align-items: stretch;
+           /*   min-height: 100vh;*/
+          position :relative;
+         
+    	
+         }
+         
+         
+         
+         
+         
+         
+    
+        .app__child-1-1
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:0;
+            flex-shrink :0;
+            flex-basis:20%; 
+             background:rgba(1,1,1,0.3);
+   	        
+        }
+        
+        .app__child-1-2
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:1;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+   	        
+        }
+        
+        
+        
+        
+        @media only screen and (max-width: 57em) {
+   
+ 
+    /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */
+
+
+         
+    
+        .app__child-1-1
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:0;
+            flex-shrink :0;
+            flex-basis:auto;
+            
+           
+   	        
+        }
+        
+        .app__child-1-2
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:1;
+            flex-shrink :0;
+            flex-basis:auto; 
+     
+            
+   	        
+        }
+  
+}
+ 
+
+      
+        
+        
+        
+        
+        
+        
+        
+    
+    
+        .app__content-2	
+        {
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            justify-content:space-between;
+            
+            
+            position:relative;
+
+        }	
+    
+        .app__child-2-1
+        {
+            
+        }
+        
+        
+        
+       
+          
+          
+
+
+
+        
+        
+        
+        
+        
+     
+        
+        
+        
+        .app__content-3	
+        {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            justify-content:space-between;
+            
+            position:relative;
+            
+
+        }
+        
+        .app__child-3-1
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+   	  
+        }
+        
+        
+        .app__child-3-2
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:1;
+            flex-shrink :0;
+            flex-basis:auto; 
+            background:rgba(1,1,1,0.1);
+            
+   	        
+        }
+        
+        
+        .app__child-3-3
+        {
+            /*full column - master__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:auto; 
+            
+   	  
+        }
+        
+        .app__content-4	
+        {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            justify-content:space-between;
+            
+            position:relative;
+
+        }
+        
+        .app__child-4-1
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:4rem; 
+            background:rgba(1,1,1,0.1);
+   	  
+        }
+        
+        
+        .app__child-4-2
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:0;
+            flex-shrink :0;
+            flex-basis:40%; 
+            
+   	        background:rgba(1,1,1,0.2);
+        }
+        
+        
+        .app__child-4-3
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:4rem; 
+            
+   	  
+        }
+        
+        
+        
+        .app__content-5	
+        {
+
+            display  : -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row ;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            justify-content:space-between;
+
+        }
+        
+        .app__child-5-1
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:4rem; 
+            background:rgba(1,1,1,0.1);
+   	  
+        }
+        
+        
+        .app__child-5-2
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow:0;
+            flex-shrink :0;
+            flex-basis:40%; 
+            
+   	        background:rgba(1,1,1,0.2);
+        }
+        
+        
+        .app__child-5-3
+        {
+            /*full column - app__content          0 0 auto  */
+            /*full column - available space  1 0 auto  */
+            /*full column - available space + remain  0 0 100%  full column 100 * 100 */
+             /*full column - available space - remain  0 1 100% or 1 1 auto */
+            flex-grow: 0;
+            flex-shrink :0;
+            flex-basis:4rem; 
+            background:rgba(1,1,1,0.3);
+   	  
+        }
+        
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+ .navigation {/*
+  display: none; */
+  
+  }      
+        
+        
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button 
+{
+    opacity:0.7;
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 2000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer; }
+  @media only screen and (max-width: 57em) {
+    .navigation__button {
+      top: 4rem;
+      right: 4rem; } }
+  @media only screen and (max-width: 37em) {
+    .navigation__button {
+      top: 3rem;
+      right: 3rem; } }
+
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: radial-gradient(red, white);
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+  @media only screen and (max-width: 57em) {
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media only screen and (max-width: 37em) {
+    .navigation__background {
+      top: 3.5rem;
+      right: 3.5rem; } }
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  overflow:hidden;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%; }
+
+.navigation__item {
+  margin: 1rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 220%;
+  transition: all .4s; }
+  .navigation__link:link span, .navigation__link:visited span {
+    margin-right: 1.5rem;
+    display: inline-block; }
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: red;
+  transform: translateX(1rem); }
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80); }
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%; }
+
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .2s; }
+  .navigation__icon::before {
+    top: -.8rem; }
+  .navigation__icon::after {
+    top: .8rem; }
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem; }
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg); }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg); }
+        
+        
+        
+
+
+        
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 37em)  {
+   
+ 
+    /*       ##Device = Most of the Smartphones Mobiles (Portrait)      ##Screen = B/w 320px to 479px    */
+
+            .navigation {
+                display: block; 
+             } 
+  
+}
+ 
+
+@media only screen and (min-width: 57em)  {
+ 
+    /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+              .navigation {
+                display: block; 
+             } 
+}
+    
+@media only screen and (min-width: 75em) {
+  
+    /*       ##Device = Laptops, Desktops      ##Screen = B/w 1025px to 1280px    */
+
+            .navigation {
+                display: none; 
+             } 
+}
+
+@media only screen and (min-width: 112em) {
+  
+     /*       ##Device = Desktops      ##Screen = 1281px to higher resolution desktops    */
+
+            .navigation {
+                display: none; 
+             } 
+  
+}     
+
+
+
+
+
+.mainbar
+{
+                       flex-grow:1 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal; 
+                       
+                       
+                       display:flex;
+                       flex-direction:column;
+                       flex-wrap: nowrap;
+                       align-items:stretch;
+                       justify-content:center; 
+                       position:relative;
+}
+
+.main-nav
+{
+                       flex-grow:0 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal;  
+                       
+                       
+                       display:flex;
+                       flex-direction:row;
+                       flex-wrap: nowrap;
+                       align-items:stretch;
+                       justify-content:space-around; 
+                       position:relative;
+}
+
+.main-nav__item 
+{
+                         flex-grow:1 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal;  
+                       
+                       
+                       display:flex;
+                       flex-direction:row;
+                       flex-wrap: nowrap;
+                       align-items:center;
+                       justify-content:center; 
+                       
+                       position:relative;
+}
+
+.main-nav__item:not(:last-child) 
+{
+    
+     margin-right: .1rem; 
+     
+}
+
+.main-nav__link
+{
+                       flex-grow:1 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal;  
+                         padding: 1.5rem 3rem;
+                    
+                       
+                       
+                       display:flex;
+                       flex-direction:row;
+                       flex-wrap: nowrap;
+                       align-items:center;
+                       justify-content:center; 
+                       
+                       position:relative;
+}
+.main-nav
+{
+         font-size: 1.4rem;
+      list-style: none; 
+    }
+.main-nav_link
+{
+   padding: 1.5rem 3rem; 
+
+    
+    }
+    
+  .main-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    
+    
+    background-color: red;
+    
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.4s, background-color 0.1s; 
+  }
+  
+    .main-nav__item:hover::before, .main-nav__item--active::before {
+    transform: scaleY(1);
+    width: 100%; 
+  }
+    
+    .main-nav__link:link, .main-nav__link:visited 
+    {
+           color: white;
+           text-decoration: none;
+           text-transform: uppercase;
+     }
+  
+    .main-nav__icon {
+            width: 1.75rem;
+            height: 1.75rem;
+            margin-right: 2rem;
+            fill: currentColor; 
+    }
+
+
+
+ 
+
+
+.sidebar
+{
+       
+        
+                       flex-grow:1 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal;   
+                       
+                       
+                       display:flex;
+                       flex-direction:column;
+                       flex-wrap: nowrap;
+                       align-items:stretch;
+                       justify-content:flex-start; 
+                       position:relative;
+}
+
+.side-nav
+{
+                       flex-grow:0 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal; 
+                       
+                       
+                       display:flex;
+                       flex-direction:column;
+                       flex-wrap: nowrap;
+                       align-items:stretch;
+                       justify-content:space-around; 
+                       position:relative;
+}
+
+.side-nav__item 
+{
+                         flex-grow:1 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal; 
+                       
+                       
+                       display:flex;
+                       flex-direction:row;
+                       flex-wrap: nowrap;
+                       align-items:stretch;
+                       justify-content:flex-start; 
+                       
+                       position:relative;
+}
+
+.side-nav__item:not(:last-child) 
+{
+    
+     margin-bottom: .1rem; 
+     
+}
+
+.side-nav__link
+{
+                       flex-grow:1 ;
+                       flex-shrink :0;
+                       flex-basis:auto;
+                       align-self: normal;  
+                         padding: 1.5rem 3rem;
+                    
+                       
+                       
+                       display:flex;
+                       flex-direction:row;
+                       flex-wrap: nowrap;
+                       align-items:center;
+                       justify-content:flex-start; 
+                       
+                       position:relative;
+}
+
+
+.sidebar
+{
+     padding-top: 8rem;
+    
+    }
+.side-nav
+{
+         font-size: 1.4rem;
+      list-style: none; 
+    }
+.side-nav_link
+{
+   padding: 1.5rem 3rem; 
+
+    
+    }
+    
+  .side-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    
+    
+    background-color: red;
+    
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.4s, background-color 0.1s; 
+  }
+  
+    .side-nav__item:hover::before, .side-nav__item--active::before {
+    transform: scaleY(1);
+    width: 100%; 
+  }
+    
+    .side-nav__link:link, .side-nav__link:visited 
+    {
+           color: #522727;
+           text-decoration: none;
+           text-transform: uppercase;
+     }
+  
+    .side-nav__icon {
+            width: 1.75rem;
+            height: 1.75rem;
+            margin-right: 2rem;
+            fill: currentColor; 
+    }
+
+
+
+    
+
+
+
+@media only screen and (max-width: 57em)  {
+ 
+    /*       ##Device = Tablets, Ipads (portrait)      ##Screen = B/w 768px to 1024px    */
+              .side-nav__link span {
+                display: none; 
+             } 
+             
+             
+             
+               .side-nav__item::before {
+
+    
+                transform: scaleY(0);
+                transition: transform 0.3s, background-color 0.4s; 
+              }
+             
+             
+             
+             .side-nav__item:hover::before, .side-nav__item--active::before {
+               transform: scaleY(1);
+               width :3px;
+    
+              }
+              
+                            .side-nav__icon 
+                            {
+                                            width: 2.75rem;
+            height: 2.75rem;
+                margin-right: 0rem;
+             } 
+}
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="https://wwww.yahoo.com" class="navigation__link"><span>01</span>menu123</a></li>
+                    <li class="navigation__item"><a href="https://wwww.yahoo.com" class="navigation__link"><span>02</span>menu123</a></li>
+                    <li class="navigation__item"><a href="https://wwww.yahoo.com" class="navigation__link"><span>03</span>menu123</a></li>
+                    <li class="navigation__item"><a href="https://wwww.yahoo.com" class="navigation__link"><span>04</span>menu123</a></li>
+                    <li class="navigation__item"><a href="https://wwww.yahoo.com" class="navigation__link"><span>05</span>menu123</a></li>
+                    </ul>
+            </nav>
+        </div>
+    <div class="app">
+
+   
+               <div class="master__content-1"> 
+                    <div class="master__child-1-1 master__content-2">
+                           <div class="master__child-2-1 master__content-3">
+
+                                    <div class="master__child-3-1 master__content-4">
+
+                                        <div class="master__child-4-1">
+                                           master  4.1
+                                        </div>
+
+                                        <div class="master__child-4-2 master__content-7">
+                                                                            <nav class="mainbar">
+                                                                                <ul class="main-nav">
+                                                                                    <li class="main-nav__item main-nav__item--active">
+                                                                                        <a href="#" class="main-nav__link">
+                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="main-nav__icon">
+                                                                                            <title>star</title>
+                                                                                                    <path d="M10 1.3l2.388 6.722h6.412l-5.232 3.948 1.871 6.928-5.439-4.154-5.438 4.154 1.87-6.928-5.233-3.948h6.412l2.389-6.722z"></path>
+                                                                                            </svg>
+                                                                                            <span>Nuevo</span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="main-nav__item">
+                                                                                        <a href="#" class="main-nav__link">
+                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="main-nav__icon">
+                                                                                            <title>star</title>
+                                                                                                    <path d="M10 1.3l2.388 6.722h6.412l-5.232 3.948 1.871 6.928-5.439-4.154-5.438 4.154 1.87-6.928-5.233-3.948h6.412l2.389-6.722z"></path>
+                                                                                            </svg>
+                                                                                            <span>Nuevo</span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="main-nav__item">
+                                                                                        <a href="#" class="main-nav__link">                                                                                          
+                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="main-nav__icon">
+                                                                                                    <title>star</title>
+                                                                                                    <path d="M10 1.3l2.388 6.722h6.412l-5.232 3.948 1.871 6.928-5.439-4.154-5.438 4.154 1.87-6.928-5.233-3.948h6.412l2.389-6.722z"></path>
+                                                                                            </svg>
+                                                                                            <span>Nuevo</span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </nav>
+                                        </div>
+
+                                        <div class="master__child-4-3">
+                                          master  4.3
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="master__child-3-2 master__content-5">
+
+                                            <div class="master__child-5-1 app__content-1">
+                                              
+                                                    <div class="app__child-1-1 app__content-2">
+                                                          
+
+
+                                                                          <nav class="sidebar">
+                                                                                <ul class="side-nav">
+                                                                                    <li class="side-nav__item side-nav__item--active">
+                                                                                        <a href="#" class="side-nav__link">
+                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="side-nav__icon">
+                                                                                            <title>star</title>
+                                                                                                    <path d="M10 1.3l2.388 6.722h6.412l-5.232 3.948 1.871 6.928-5.439-4.154-5.438 4.154 1.87-6.928-5.233-3.948h6.412l2.389-6.722z"></path>
+                                                                                            </svg>
+                                                                                            <span>Nuevo</span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="side-nav__item">
+                                                                                        <a href="#" class="side-nav__link">
+                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="side-nav__icon">
+                                                                                            <title>star</title>
+                                                                                                    <path d="M10 1.3l2.388 6.722h6.412l-5.232 3.948 1.871 6.928-5.439-4.154-5.438 4.154 1.87-6.928-5.233-3.948h6.412l2.389-6.722z"></path>
+                                                                                            </svg>
+                                                                                            <span>Nuevo</span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="side-nav__item">
+                                                                                        <a href="#" class="side-nav__link">
+                                                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="side-nav__icon">
+                                                                                                <title>star</title>
+                                                                                                        <path d="M10 1.3l2.388 6.722h6.412l-5.232 3.948 1.871 6.928-5.439-4.154-5.438 4.154 1.87-6.928-5.233-3.948h6.412l2.389-6.722z"></path>
+                                                                                                </svg>       
+                                                                                            <span>Nuevo</span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </nav>
+
+
+
+
+
+
+
+
+
+                                                    </div>
+
+                                                    <div class="app__child-1-2 app__content-3">
+
+                                                            <div class="app__child-3-1 app__content-4">
+                                                                    
+                                                                                            <div class="app__child-4-1">
+                                                                                               app  4.1
+                                                                                            </div>
+
+                                                                                            <div class="app__child-4-2">
+                                                                                               app  4.2
+                                                                                            </div>
+
+                                                                                            <div class="app__child-4-3">
+                                                                                               app  4.3
+                                                                                            </div>
+                                                            </div>
+                                                            <div class="app__child-3-2">
+                                                                app 3.2
+                                                            </div>
+                                                            <div class="app__child-3-3 app__content-5">
+                                                                                            
+                                                                                            <div class="app__child-5-1">
+                                                                                               app  5.1
+                                                                                            </div>
+
+                                                                                            <div class="app__child-5-2">
+                                                                                               app  5.2
+                                                                                            </div>
+
+                                                                                            <div class="app__child-5-3">
+                                                                                              app   5.3
+                                                                                            </div>
+                                                            </div>
+
+                                                    </div>
+                                           
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            </div>
+                                     </div>
+
+                                       
+                                  
+
+                                    <div class="master__child-3-3 master__content-6">
+
+                                        <div class="master__child-6-1">
+                                          master 6.1
+                                        </div>
+
+                                        <div class="master__child-6-2">
+                                          master 6.2
+                                        </div>
+
+                                        <div class="master__child-6-3">
+                                          master 6.3
+                                        </div>
+                               
+                                       
+                                    </div>
+                            </div>
+
+                    </div>
+               </div>
+    </div>
+ 
+
+
+
+
+  
+</body>
+</html>

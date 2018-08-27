@@ -1,0 +1,178 @@
+package com.solutions.base.mvc.pagination;
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.ScrollMode;
+import org.hibernate.ScrollableResults;
+ 
+public class PaginationResult<E> {
+ 
+    private int totalRecords;
+    private int currentPage;
+    private List<E> list;    
+    private int totalPages;     
+    private List<Integer> navigationPages;
+    private int pageIndex;
+    
+    
+    private int _maxResult;
+    private int _maxNavigationPage; 
+    private Criteria _query;
+    private int _page;
+    
+ 
+    // @page: 1, 2, ..
+    public PaginationResult(Criteria query, int page, int maxResult, int maxNavigationPage) {
+
+    	this._query = query;
+    	this._page = page;
+    	this._maxNavigationPage = maxNavigationPage;
+        this._maxResult = maxResult;
+        //working
+        this.totalRecords = setTotalRecords();
+        //working
+        this.totalPages = setTotalPages();
+        
+        
+        this.pageIndex = setPageIndex();
+        this.currentPage = this.pageIndex + 1;
+        
+        
+        
+        this.navigationPages = setNavigationPages();
+    	
+    	
+    	        
+        
+        
+        this.list = getResults();
+        
+ 
+    
+    }
+
+    private int setTotalRecords() {
+   
+    	
+        ScrollableResults resultScroll = this._query.scroll(ScrollMode.FORWARD_ONLY  );      
+        
+        resultScroll.last(); 
+        int totalRecords = resultScroll.getRowNumber() + 1;
+        resultScroll.close();
+      
+        return totalRecords;
+        
+    }
+    
+    private int setTotalPages(){
+    	
+        if (this.totalRecords % this._maxResult == 0) {
+            return this.totalRecords / this._maxResult;
+        } else {
+        	return  (this.totalRecords / this._maxResult) + 1;
+        }
+		 
+	}
+    
+    private int setPageIndex() {
+    	final int pageIndex ;
+    	if (this.totalPages < this._page) {
+    		
+    		pageIndex = this.totalPages - 1 < 0 ? 0 : this.totalPages - 1;
+    		
+    	}else	{
+	        
+    		pageIndex = this._page - 1 < 0 ? 0 : this._page - 1;
+			
+    	}
+    	return pageIndex; 		
+    	
+	}
+
+
+    
+
+
+ 
+    public List<Integer> setNavigationPages() {
+        
+    	 
+        if (this._maxNavigationPage < this.totalPages) {
+        	
+            this._maxNavigationPage = this._maxNavigationPage;
+        }
+ 
+        this.navigationPages = new ArrayList<Integer>();
+ 
+        int current = this.currentPage > this.totalPages ? this.totalPages : this.currentPage;
+ 
+        int begin = current - this._maxNavigationPage / 2;
+        int end = current + this._maxNavigationPage / 2;
+  
+        // The first page
+        navigationPages.add(1);
+        if (begin > 2) {
+            // Using for '...'
+            navigationPages.add(-1);
+        }
+ 
+        for (int i = begin; i < end; i++) {
+            if (i > 1 && i < this.totalPages) {
+                navigationPages.add(i);
+            }
+        }
+ 
+        if (end < this.totalPages - 2) {
+            // Using for '...'
+            navigationPages.add(-1);
+        }
+     
+        // The last page.
+        navigationPages.add(this.totalPages);
+        
+        return navigationPages;
+    }
+    
+    
+
+	@SuppressWarnings("unchecked")
+	
+	private List<E> getResults() {
+		
+        int fromRecordIndex = this.pageIndex * this._maxResult;    
+		return this._query.setMaxResults(this._maxResult).setFirstResult(fromRecordIndex).list();
+		
+    	
+    }
+    
+    
+ 
+    public int getTotalPages() {
+        return totalPages;
+    }
+ 
+    public int getTotalRecords() {
+        return totalRecords;
+    }
+ 
+    public int getCurrentPage() {
+        return currentPage;
+    }
+ 
+    public List<E> getList() {
+        return list;
+    }
+ 
+    public int getMaxResult() {
+        return _maxResult;
+    }
+
+    public List<Integer> getNavigationPages() {
+        return navigationPages;
+    }
+ 
+}
